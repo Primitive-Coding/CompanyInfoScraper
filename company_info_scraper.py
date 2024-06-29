@@ -3,7 +3,8 @@ import yfinance as yf
 import pandas as pd
 import json
 
-from mappings import countries
+
+countries = {"United States": "USA"}
 
 
 class CompanyInfo:
@@ -15,14 +16,16 @@ class CompanyInfo:
     """-----------------------------------"""
 
     def _get_data_export_path(self):
-        with open("config.json", "r") as file:
+        path = f"{os.getcwd()}\\CompanyInfoScraper\\config.json"
+        with open(path, "r") as file:
             data = json.load(file)
         return data["data_export_path"]
 
     """-----------------------------------"""
 
     def _get_chrome_driver_path(self):
-        with open("config.json", "r") as file:
+        path = f"{os.getcwd()}\\CompanyInfoScraper\\config.json"
+        with open(path, "r") as file:
             data = json.load(file)
         return data["chrome_driver_path"]
 
